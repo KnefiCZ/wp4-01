@@ -1,6 +1,13 @@
 <?php 
-    $Player1 = rand(100,600);
-    $Player2 = rand(100,600);
+    require_once "classes" . DIRECTORY_SEPARATOR . "Player.php";
+
+    $players[] = new Player("Matěj Kneifl");
+    $players[] = new Player("David Mareš");
+    $players[] = new Player("Matěj Dalekorej");
+    $players[] = new Player("Martin Kokeš");
+    $players[] = new Player("Jan Pilař");
+    $players[] = new Player("Kája Marešová");
+    $players[] = new Player("Kristián Klimek");
 ?>
 
 <!DOCTYPE html>
@@ -13,18 +20,7 @@
     <title>VALKAAAA</title>
 
     <style>
-        .player-1 {
-            color:red;
-        }
-        .player-1:before {
-            font-size: <?php echo $Player1?>px;
-        }
-        .player-2 {
-            color:blue;
-        }
-        .player-2:before {
-            font-size:<?php echo $Player2?>px;
-        }
+      
         .w-50 {
             width:50%;
         }
@@ -43,30 +39,17 @@
 
 </head>
 <body>
-<div>
-    <div class="w-50 left">
-      <h1>Player 1 = <?php echo $Player1 ?> </h1>
-         <span class="flaticon-fighter-plane player player-1"></span>
-    </div>
-    <div class="w-50 left">
-        <h1>Player 2 = <?php echo $Player2 ?> </h1>
-         <span class="flaticon-fighter-plane-1 player player-2"></span>
-    </div>
-</div>
-<div class="clearfix"></div>
-<div class="winner">
-    <?php 
-     if ($Player1 > $Player2) {
-        echo "Player 1 WON!!!";
-    }
-    elseif ($Player1 == $Player2) {
-        echo "IT'S A DRAW!!!";
-    }
-    else {
-        echo "Player 2 WON!!!";
-    }
-   ?>
-</div>
-    
+
+        <div class="row">
+            <?php
+                foreach ($players as $player) { 
+                    //        Matej Kneifl                       =         500
+                    ?><p>Player <?php echo $player->getName();?> = <?php echo $player->getSize();?></p>
+                    <span class="flaticon-fighter-plane player player-1" style="color:<?php echo $player->getColor();?>;"></span>
+                <?php
+                }
+                ?>
+        </div>
+
 </body>
 </html>
