@@ -1,13 +1,19 @@
 <?php 
     require_once "classes" . DIRECTORY_SEPARATOR . "Player.php";
 
-    $players[] = new Player("Matěj Kneifl");
-    $players[] = new Player("David Mareš");
-    $players[] = new Player("Matěj Dalekorej");
-    $players[] = new Player("Martin Kokeš");
-    $players[] = new Player("Jan Pilař");
-    $players[] = new Player("Kája Marešová");
-    $players[] = new Player("Kristián Klimek");
+    $players = array (
+        //Player can choose from 7 ICONS
+        //  for exapmle: tank, cannon, fighter-plane-1, helicopter
+        // 
+        //           NAME           SHORT   ICON
+        new Player("Matěj Kneifl", "makn", "tank"),
+        new Player("David Mareš", "dama", "cannon"),
+        new Player("Matěj Dalekorej", "mada", "fighter-plane-1"),
+        new Player("Martin Kokeš", "mako", "helicopter"),
+        new Player("Jan Pilař", "japi", "knife"),
+        new Player("Kája Marešová", "kama", "pistol"),
+        new Player("Kristián Klimek", "krkl", "ship")
+);
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +26,6 @@
     <title>VALKAAAA</title>
 
     <style>
-      
         .w-50 {
             width:50%;
         }
@@ -30,11 +35,18 @@
         .clearfix {
             clear:both;
         }
-        .winner {
-            font-size:60px;
-            text-align:center;
-            width:100%;
+        .player-mako:before {
+            font-size: 180px;
         }
+
+        <?php foreach ($players as $player) {
+        ?> .player-<?php echo $player->getId();?>:before {
+            font-size:<?php echo $player->getSize();?>px;
+        }
+    <?php
+    }
+    ?> 
+    
     </style>
 
 </head>
@@ -45,7 +57,9 @@
                 foreach ($players as $player) { 
                     //        Matej Kneifl                       =         500
                     ?><p>Player <?php echo $player->getName();?> = <?php echo $player->getSize();?></p>
-                    <span class="flaticon-fighter-plane player player-1" style="color:<?php echo $player->getColor();?>;"></span>
+                    <div class="">
+                        <span class="flaticon-<?php echo $player->getIcon();?> player-<?php echo $player->getId(); ?>" style="color:<?php echo $player->getColor();?> ;"></span>
+                    </div>
                 <?php
                 }
                 ?>
