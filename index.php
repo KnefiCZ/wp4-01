@@ -7,12 +7,12 @@
         // 
         //           NAME           SHORT   ICON
         new Player("Matěj Kneifl", "makn", "tank"),
-        new Player("David Mareš", "dama", "cannon"),
         new Player("Matěj Dalekorej", "mada", "fighter-plane-1"),
         new Player("Martin Kokeš", "mako", "helicopter"),
         new Player("Jan Pilař", "japi", "knife"),
         new Player("Kája Marešová", "kama", "pistol"),
-        new Player("Kristián Klimek", "krkl", "ship")
+        new Player("Kristián Klimek", "krkl", "ship"),
+        new Player("David Mareš", "dama", "cannon")
 );
 ?>
 
@@ -56,7 +56,7 @@
             <?php
                 foreach ($players as $player) { 
                     //        Matej Kneifl                       =         500
-                    ?><p>Player <?php echo $player->getName();?> = <?php echo $player->getSize();?></p>
+                    ?><p>Player <?php echo $player->getName();?> = <?php echo $player->getSize();?> px.</p>
                     <div class="">
                         <span class="flaticon-<?php echo $player->getIcon();?> player-<?php echo $player->getId(); ?>" style="color:<?php echo $player->getColor();?> ;"></span>
                     </div>
@@ -64,6 +64,26 @@
                 }
                 ?>
         </div>
+    <?php 
 
+        $highestSize = 0;
+        $winnerName = "None";
+    /*
+        for ($i=0; $i < count($players) ; $i++) { 
+            if ($player->getSize() > $highestSize) {
+                $highestSize = $player->getSize();
+            }   
+        }
+        echo $highestSize;
+    */
+        foreach ($players as $player) {
+            if ($player->getSize() > $highestSize) {
+                $highestSize = $player->getSize();
+                $winnerName = $player->getName();
+            } 
+            
+        }
+        echo "Výherce je : " .  $winnerName . " s velikostí = " . $highestSize . " px."; 
+    ?>
 </body>
 </html>
