@@ -7,8 +7,9 @@ class Player
     private $size;
     private $id;
     private $icon;
+    private $description;
     
-    public function __construct($name, $id, $icon, $color = "NONE", $size = 0) {
+    public function __construct($name, $id, $icon, $description, $color = "NONE", $size = 0) {
         if ($size <= 0) {
             $size = rand(100, 300);
         }
@@ -23,6 +24,7 @@ class Player
         $this->size = $size;
         $this->id = $id;
         $this->icon = $icon;
+        $this->description = $description;
     }
 
     public function getName() {
@@ -40,7 +42,12 @@ class Player
     public function getId() {
         return $this->id;
     }
-    public function getIcon(Type $var = null) {
+
+    public function getIcon() {
         return $this->icon;
+    }
+
+    public function getDescription() {
+        return $this->description;
     }
 }

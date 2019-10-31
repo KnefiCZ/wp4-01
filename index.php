@@ -2,18 +2,20 @@
     require_once "classes" . DIRECTORY_SEPARATOR . "Player.php";
 
     $players = array (
+        //----------------------------------------------------------------------
         //Player can choose from 7 ICONS
         //  for exapmle: tank, cannon, fighter-plane-1, helicopter
         // 
-        //           NAME           SHORT   ICON
-        new Player("Matěj Kneifl", "makn", "tank"),
-        new Player("Matěj Dalekorej", "mada", "fighter-plane-1"),
-        new Player("Martin Kokeš", "mako", "helicopter"),
-        new Player("Jan Pilař", "japi", "knife"),
-        new Player("Kája Marešová", "kama", "pistol"),
-        new Player("Kristián Klimek", "krkl", "ship"),
-        new Player("David Mareš", "dama", "cannon")
-);
+        //           NAME             SHORT   ICON                DESCRIPTION
+        new Player("Matěj Kneifl",    "makn", "tank",            "Pavlov VR Solider"),
+        new Player("Matěj Dalekorej", "mada", "fighter-plane-1", "FN pro"),
+        new Player("Martin Kokeš",    "mako", "helicopter",      "Top teacher"),
+        new Player("Jan Pilař",       "japi", "knife",           "Lover Ubuntu"),
+        new Player("Kája Marešová",   "kama", "pistol",          "Tea grill"),
+        new Player("Kristián Klimek", "krkl", "ship",            "oh oh stinkyy cigaret"),
+        new Player("David Mareš",     "dama", "cannon",          "stinkyyy poopiee")
+        //----------------------------------------------------------------------
+    );
 ?>
 
 <!DOCTYPE html>
@@ -54,9 +56,10 @@
 
         <div class="row">
             <?php
-                foreach ($players as $player) { 
+                foreach ($players as $player) {     
+
                     //        Matej Kneifl                       =         500
-                    ?><p>Player <?php echo $player->getName();?> = <?php echo $player->getSize();?> px.</p>
+                    ?><p>Player <?php echo $player->getName();?> = <?php echo $player->getSize();?> px. <?php echo $player->getDescription();?></p>
                     <div class="">
                         <span class="flaticon-<?php echo $player->getIcon();?> player-<?php echo $player->getId(); ?>" style="color:<?php echo $player->getColor();?> ;"></span>
                     </div>
@@ -68,14 +71,6 @@
 
         $highestSize = 0;
         $winnerName = "None";
-    /*
-        for ($i=0; $i < count($players) ; $i++) { 
-            if ($player->getSize() > $highestSize) {
-                $highestSize = $player->getSize();
-            }   
-        }
-        echo $highestSize;
-    */
         foreach ($players as $player) {
             if ($player->getSize() > $highestSize) {
                 $highestSize = $player->getSize();
@@ -83,7 +78,7 @@
             } 
             
         }
-        echo "Výherce je : " .  $winnerName . " s velikostí = " . $highestSize . " px."; 
+        echo "<b>Výherce je : " .  $winnerName . " s velikostí = " . $highestSize . " px.</b>"; 
     ?>
 </body>
 </html>
