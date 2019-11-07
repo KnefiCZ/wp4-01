@@ -1,5 +1,6 @@
 <?php 
     require_once "classes" . DIRECTORY_SEPARATOR . "Player.php";
+    require_once "classes" . DIRECTORY_SEPARATOR . "Units.php";
 
     $players = array (
         //----------------------------------------------------------------------
@@ -16,6 +17,14 @@
         new Player("David Mareš",     "dama", "cannon",          "stinkyyy poopiee")
         //----------------------------------------------------------------------
     );
+    $unit = array (
+        //        ICON               COLOR        SIZE
+        new Unit("tank",             "red",       "10"),
+        new Unit("fighter-plane-1",  "blue",      "10"),
+        new Unit("helicopter",       "green",     "10"),
+        new Unit("knife",            "yellow",    "10")
+    );
+    
 ?>
 
 <!DOCTYPE html>
@@ -57,13 +66,13 @@
         <div class="row">
             <?php
                 foreach ($players as $player) {     
-
-                    //        Matej Kneifl                       =         500
-                    ?><p>Player <?php echo $player->getName();?> = <?php echo $player->getSize();?> px. <?php echo $player->getDescription();?></p>
+                    for ($i=0; $i < rand(0,10); $i++) { 
+                             //        Matej Kneifl                       =         500
+                        ?><p>Player <?php echo $player->getName();?> = <?php echo $unit->getSize();?> px. <?php echo $player->getDescription();?></p>
                     <div class="">
-                        <span class="flaticon-<?php echo $player->getIcon();?> player-<?php echo $player->getId(); ?>" style="color:<?php echo $player->getColor();?> ;"></span>
+                        <span class="flaticon-<?php echo $unit->getIcon();?> player-<?php echo $player->getId(); ?>" style="color:<?php echo $unit->getColor();?> ;"></span>
                     </div>
-                <?php
+          <?php }     
                 }
                 ?>
         </div>
