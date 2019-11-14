@@ -24,12 +24,13 @@ class Unit
     public function getColor() {
        return $this->color;        
     }
-    
-    public function getSize() {
-       return $this->size;        
-    }
 
     public function getIcon() {
         return $this->icon;
     }
+
+    public function getSize() {
+       return $this->size;        
+    }
+
 }

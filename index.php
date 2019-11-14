@@ -17,14 +17,14 @@
         new Player("David Mareš",     "dama",  "stinkyyy poopiee")
         //----------------------------------------------------------------------
     );
-       //                         ICON               COLOR        SIZE
+       //                          ICON                COLOR        SIZE
     $players[0]->addUnit(new Unit("tank",             "red",       "10")); 
-    $players[0]->addUnit(new Unit("tank",             "blue",      "20"));       
+    $players[0]->addUnit(new Unit("tank",             "blue",      "50"));       
     $players[1]->addUnit(new Unit("fighter-plane-1",  "green",     "10"));  
-    $players[1]->addUnit(new Unit("fighter-plane-1",  "yellow",    "20"));
-    $players[1]->addUnit(new Unit("fighter-plane-1",  "gray",      "30"));  
+    $players[1]->addUnit(new Unit("fighter-plane-1",  "yellow",    "50"));
+    $players[1]->addUnit(new Unit("fighter-plane-1",  "gray",      "90"));  
     $players[2]->addUnit(new Unit("helicopter",       "purple",    "10"));
-    $players[2]->addUnit(new Unit("helicopter",       "pink",      "20"));
+    $players[2]->addUnit(new Unit("helicopter",       "pink",      "50"));
     $players[3]->addUnit(new Unit("helicopter",       "orange",    "10"));
     $players[3]->addUnit(new Unit("knife",            "black",     "20"));
 
@@ -61,9 +61,8 @@
             <?php
                 foreach ($players as $player) {     
                 
-                             //        Matej Kneifl                       =         500
-                        ?><p>Player <?php echo $player->getName();?> = px.
-                                    <?php echo $player->getDescription();?>
+                        ?><p> Player <?php echo $player->getName();?> .
+                                     <?php echo $player->getDescription();?>
                           </p>
 
                         <?php foreach ($player->getUnits() as $unit) { ?>
@@ -72,7 +71,8 @@
                                  <span 
                                        class="flaticon-<?php echo $unit->getIcon();?>
                                               player-<?php echo $player->getId();?>" 
-                                       style="color:<?php echo $unit->getColor();?> ;">
+                                       style="color:<?php echo $unit->getColor();?>; 
+                                              font-size:<?php echo $unit->getSize();?>px;">
                                  </span>
                            </div>
 
