@@ -5,13 +5,13 @@ class Player
     private $name;
     private $id;
     private $description;
-    private $unit;
+    private $units;
     
-    public function __construct($name, $id, $description, $unit) {
+    public function __construct($name, $id, $description) {
         $this->name = $name;
         $this->id = $id;
         $this->description = $description;
-        $this->unit = $unit;
+        $this->units = array();
     }
 
     public function getName() {
@@ -27,6 +27,10 @@ class Player
     }
 
     public function addUnit($unit) {
-        return $this->unit[] = $unit;
+        return $this->units[] = $unit;
+    }
+
+    public function getUnits() {
+        return $this->units;
     }
 }

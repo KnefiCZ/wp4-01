@@ -1,29 +1,33 @@
 <?php 
     require_once "classes" . DIRECTORY_SEPARATOR . "Player.php";
-    require_once "classes" . DIRECTORY_SEPARATOR . "Units.php";
+    require_once "classes" . DIRECTORY_SEPARATOR . "Unit.php";
 
     $players = array (
         //----------------------------------------------------------------------
         //Player can choose from 7 ICONS
         //  for exapmle: tank, cannon, fighter-plane-1, helicopter
         // 
-        //           NAME             SHORT   ICON                DESCRIPTION
-        new Player("Matěj Kneifl",    "makn", "tank",            "Pavlov VR Solider"),
-        new Player("Matěj Dalekorej", "mada", "fighter-plane-1", "FN pro"),
-        new Player("Martin Kokeš",    "mako", "helicopter",      "Top teacher"),
-        new Player("Jan Pilař",       "japi", "knife",           "Lover Ubuntu"),
-        new Player("Kája Marešová",   "kama", "pistol",          "Tea grill"),
-        new Player("Kristián Klimek", "krkl", "ship",            "oh oh stinkyy cigaret"),
-        new Player("David Mareš",     "dama", "cannon",          "stinkyyy poopiee")
+        //           NAME             SHORT         DESCRIPTION
+        new Player("Matěj Kneifl",    "makn",  "Pavlov VR Solider"),
+        new Player("Matěj Dalekorej", "mada",  "FN pro"),
+        new Player("Martin Kokeš",    "mako",  "Top teacher"),
+        new Player("Jan Pilař",       "japi",  "Lover Ubuntu"),
+        new Player("Kája Marešová",   "kama",  "Tea grill"),
+        new Player("Kristián Klimek", "krkl",  "oh oh stinkyy cigaret"),
+        new Player("David Mareš",     "dama",  "stinkyyy poopiee")
         //----------------------------------------------------------------------
     );
-    $unit = array (
-        //        ICON               COLOR        SIZE
-        new Unit("tank",             "red",       "10"),
-        new Unit("fighter-plane-1",  "blue",      "10"),
-        new Unit("helicopter",       "green",     "10"),
-        new Unit("knife",            "yellow",    "10")
-    );
+       //                         ICON               COLOR        SIZE
+    $players[0]->addUnit(new Unit("tank",             "red",       "10")); 
+    $players[0]->addUnit(new Unit("tank",             "blue",      "20"));       
+    $players[1]->addUnit(new Unit("fighter-plane-1",  "green",     "10"));  
+    $players[1]->addUnit(new Unit("fighter-plane-1",  "yellow",    "20"));
+    $players[1]->addUnit(new Unit("fighter-plane-1",  "gray",      "30"));  
+    $players[2]->addUnit(new Unit("helicopter",       "purple",    "10"));
+    $players[2]->addUnit(new Unit("helicopter",       "pink",      "20"));
+    $players[3]->addUnit(new Unit("helicopter",       "orange",    "10"));
+    $players[3]->addUnit(new Unit("knife",            "black",     "20"));
+
     
 ?>
 
@@ -46,43 +50,43 @@
         .clearfix {
             clear:both;
         }
-        .player-mako:before {
-            font-size: 180px;
-        }
 
-        <?php foreach ($players as $player) {
-        ?> .player-<?php echo $player->getId();?>:before {
-            font-size:<?php echo $player->getSize();?>px;
-        }
-    <?php
-    }
-    ?> 
     
     </style>
 
 </head>
 <body>
 
-        <div class="row">
+        <div>
             <?php
                 foreach ($players as $player) {     
-                    for ($i=0; $i < rand(0,10); $i++) { 
+                
                              //        Matej Kneifl                       =         500
-                        ?><p>Player <?php echo $player->getName();?> = <?php echo $unit->getSize();?> px. <?php echo $player->getDescription();?></p>
-                    <div class="">
-                        <span class="flaticon-<?php echo $unit->getIcon();?> player-<?php echo $player->getId(); ?>" style="color:<?php echo $unit->getColor();?> ;"></span>
-                    </div>
-          <?php }     
-                }
-                ?>
+                        ?><p>Player <?php echo $player->getName();?> = px.
+                                    <?php echo $player->getDescription();?>
+                          </p>
+
+                        <?php foreach ($player->getUnits() as $unit) { ?>
+                
+                           <div>
+                                 <span 
+                                       class="flaticon-<?php echo $unit->getIcon();?>
+                                              player-<?php echo $player->getId();?>" 
+                                       style="color:<?php echo $unit->getColor();?> ;">
+                                 </span>
+                           </div>
+
+            <?php }     
+                  }
+             ?>
         </div>
     <?php 
 
         $highestSize = 0;
         $winnerName = "None";
         foreach ($players as $player) {
-            if ($player->getSize() > $highestSize) {
-                $highestSize = $player->getSize();
+            if ($unit->getSize() > $highestSize) {
+                $highestSize = $unit->getSize();
                 $winnerName = $player->getName();
             } 
             
