@@ -1,7 +1,9 @@
 <?php 
-    require_once "classes" . DIRECTORY_SEPARATOR . "Player.php";
-    require_once "classes" . DIRECTORY_SEPARATOR . "Unit.php";
-
+  //   -->STACI COMPOSER AUTOLOAD.<--
+  //  require_once "classes" . DIRECTORY_SEPARATOR . "Player.php";
+  //  require_once "classes" . DIRECTORY_SEPARATOR . "Unit.php";
+    require_once "vendor" . DIRECTORY_SEPARATOR . "autoload.php";
+ 
     $players = array (
         //----------------------------------------------------------------------
         //Player can choose from 7 ICONS
@@ -18,16 +20,20 @@
         //----------------------------------------------------------------------
     );
        //                          ICON                COLOR        SIZE
-    $players[0]->addUnit(new Unit("tank",             "red",       "10")); 
-    $players[0]->addUnit(new Unit("tank",             "blue",      "50"));       
-    $players[1]->addUnit(new Unit("fighter-plane-1",  "green",     "10"));  
-    $players[1]->addUnit(new Unit("fighter-plane-1",  "yellow",    "50"));
-    $players[1]->addUnit(new Unit("fighter-plane-1",  "gray",      "90"));  
+      //Player 1   
+    $players[0]->addUnit(new Unit("fighter-plane-1",  "green",     "10"));  
+    $players[0]->addUnit(new Unit("fighter-plane-1",  "yellow",    "50"));
+    $players[0]->addUnit(new Unit("fighter-plane-1",  "gray",      "90"));
+     //Player 2
+    $players[1]->addUnit(new Unit("tank",             "red",       "10")); 
+    $players[1]->addUnit(new Unit("tank",             "blue",      "50")); 
+     //Player 3 
     $players[2]->addUnit(new Unit("helicopter",       "purple",    "10"));
     $players[2]->addUnit(new Unit("helicopter",       "pink",      "50"));
+     //Player 4    
     $players[3]->addUnit(new Unit("helicopter",       "orange",    "10"));
     $players[3]->addUnit(new Unit("knife",            "black",     "20"));
-
+       //----------------------------------------------------------------------
     
 ?>
 
@@ -41,6 +47,7 @@
     <title>VALKAAAA</title>
 
     <style>
+
         .w-50 {
             width:50%;
         }

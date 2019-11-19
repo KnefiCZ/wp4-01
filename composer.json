@@ -1,0 +1,17 @@
+{
+    "name": "matej-kneifl/cvicnamaturita",
+    "description": "Toto je cvicna maturita ve tretaku.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Matej Kneifl",
+            "email": "matej.kneifl@student.ossp.cz"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "classmap": [
+            "classes/"
+        ]
+    }
+}
