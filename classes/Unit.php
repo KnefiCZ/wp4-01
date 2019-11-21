@@ -21,12 +21,30 @@ class Unit
         $this->icon = $icon;
     }
 
+    private function getIconById($id) {
+      // 9 ICONS AVALIBLE (10 WITH NULL)
+        $icons = array(
+           "tank", //0
+           "fighter-plane-1", //1
+           "helicopter", //2
+           "cannon", //3
+           "knife", //4
+           "pistol", //5
+           "solider", //6
+           "ship", //7
+           "submarine", //8
+           "bomb", //9
+           "NULL",
+       );
+       return $icons[$id];
+    }
+
     public function getColor() {
        return $this->color;        
     }
 
     public function getIcon() {
-        return $this->icon;
+        return $this->getIconById($this->icon);
     }
 
     public function getSize() {
