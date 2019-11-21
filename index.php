@@ -12,7 +12,7 @@
         //Player can choose from 7 ICONS
         //  for exapmle: tank (0), fighter-plane-1 (1), helicopter (2),
         //  cannon (3), knife (4), pistol (5), solider (6), ship (7),
-        //  submarine (8), bomb (9) and NULL (10).
+        //  submarine (8), bomb (9) and NULL (10) for NULL value.
         // 
         //           NAME             SHORT         DESCRIPTION
         new Player("Matěj Kneifl",    "makn",  "Pavlov VR Solider"),
@@ -24,25 +24,25 @@
         new Player("David Mareš",     "dama",  "stinkyyy poopiee")
         //----------------------------------------------------------------------
     );
-       //                   ICON       COLOR        SIZE
+       //                   ICON                COLOR        SIZE
       //Player 1   
-    $players[0]->addUnit(new Unit(0,  "green",     "10"));  
-    $players[0]->addUnit(new Unit(0,  "yellow",    "50"));
-    $players[0]->addUnit(new Unit(0,  "gray",      "90"));
+    $players[0]->addUnit(new Unit(rand(0,9),    "green",     rand(5,50)));  
+    $players[0]->addUnit(new Unit(rand(0,9),    "yellow",    rand(5,50)));
+    $players[0]->addUnit(new Unit(rand(0,9),    "gray",      rand(5,50)));
      //Player 2
-    $players[1]->addUnit(new Unit(1,  "red",       "10")); 
-    $players[1]->addUnit(new Unit(1,  "blue",      "50")); 
+    $players[1]->addUnit(new Unit(rand(0,9),    "red",       rand(5,50))); 
+    $players[1]->addUnit(new Unit(rand(0,9),    "blue",      rand(5,50))); 
      //Player 3 
-    $players[2]->addUnit(new Unit(2,   "purple",    "10"));
-    $players[2]->addUnit(new Unit(2,   "pink",      "50"));
+    $players[2]->addUnit(new Unit(rand(0,9),    "purple",    rand(5,50)));
+    $players[2]->addUnit(new Unit(rand(0,9),    "pink",      rand(5,50)));
      //Player 4    
-    $players[3]->addUnit(new Unit(3,    "orange",    "10"));
+    $players[3]->addUnit(new Unit(rand(0,9),    "orange",    rand(5,50)));
      //Player 5
-    $players[4]->addUnit(new Unit(4,    "blue",     "20"));  
-    $players[4]->addUnit(new Unit(4,    "yellow",     "20"));
-    $players[4]->addUnit(new Unit(4,    "red",     "20"));
+    $players[4]->addUnit(new Unit(rand(0,9),    "blue",      rand(5,50)));  
+    $players[4]->addUnit(new Unit(rand(0,9),    "yellow",    rand(5,50)));
+    $players[4]->addUnit(new Unit(rand(0,9),    "red",       rand(5,50)));
      //Player 6
-    $players[5]->addUnit(new Unit(5,    "orange",    "10"));
+    $players[5]->addUnit(new Unit(rand(0,9),    "orange",    rand(5,50)));
 
        //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
        //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\

@@ -30,11 +30,11 @@ class Unit
            "cannon", //3
            "knife", //4
            "pistol", //5
-           "solider", //6
+           "soldier", //6
            "ship", //7
            "submarine", //8
            "bomb", //9
-           "NULL",
+           "NULL" //10 (NULL VALUE)
        );
        return $icons[$id];
     }
